@@ -30,10 +30,10 @@ function render(){const now=Date.now(),s=state(now),seconds=Math.ceil(s.remainin
 $('.close').onclick=()=>dialog.close();$('.okay').onclick=()=>dialog.close();dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close()}});document.addEventListener('visibilitychange',render);render();setInterval(render,1000);
 
 
-const actionData={soup:{src:'seongmin-soup.png',alt:'미역국을 숟가락으로 먹는 성민이',status:'미역국 먹는 중 🥣'},football:{src:'seongmin-football.png',alt:'축구공을 리프팅하는 성민이',status:'공 떨어뜨리지 마 ⚽'},laugh:{src:'seongmin-laugh.png',alt:'손뼉 치며 박장대소하는 성민이',status:'ㅋㅋㅋㅋㅋㅋ'}};
+const actionData={soup:{src:'seongmin-soup.png',alt:'미역국을 숟가락으로 먹는 성민이',status:'미역국 먹는 중 🥣'},football:{src:'seongmin-football.png',alt:'축구공을 리프팅하는 성민이',status:'공 떨어뜨리지 마 ⚽'},cake:{src:'seongmin-cake.png',alt:'케이크를 들고 촛불을 후 부는 성민이'}};
 const actionStage=$('.character-stage'), characterImage=$('.character img');
 let activeAction=null,actionRequest=0;
 Object.values(actionData).forEach(a=>{const img=new Image();img.src=a.src});
-async function playAction(action){const request=++actionRequest;const data=actionData[action];const img=new Image();img.src=data.src;try{await img.decode()}catch{return}if(request!==actionRequest)return;activeAction=action;actionStage.dataset.action=action;characterImage.src=data.src;characterImage.alt=data.alt;document.querySelectorAll('[data-action]').forEach(b=>{if(b.tagName==='BUTTON')b.setAttribute('aria-pressed',String(b.dataset.action===action))});$('.character').setAttribute('aria-label',data.alt+' — 눌러서 다시 하기');if(action==='laugh')burst()}
+async function playAction(action){const request=++actionRequest;const data=actionData[action];const img=new Image();img.src=data.src;try{await img.decode()}catch{return}if(request!==actionRequest)return;activeAction=action;actionStage.dataset.action=action;characterImage.src=data.src;characterImage.alt=data.alt;document.querySelectorAll('[data-action]').forEach(b=>{if(b.tagName==='BUTTON')b.setAttribute('aria-pressed',String(b.dataset.action===action))});$('.character').setAttribute('aria-label',data.alt+' — 눌러서 다시 하기');actionStage.classList.remove('blowout');if(action==='cake'){void actionStage.offsetWidth;actionStage.classList.add('blowout')}}
 document.querySelectorAll('.character-actions button').forEach(b=>b.addEventListener('click',()=>playAction(b.dataset.action)));
-$('.character').addEventListener('click',()=>playAction(activeAction||'laugh'));
+$('.character').addEventListener('click',()=>playAction(activeAction||'cake'));
