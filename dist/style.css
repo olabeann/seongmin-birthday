@@ -43,3 +43,13 @@ body,button,input,select,textarea,.intro,.footnote,#message,.hero-sticker small{
 @media(max-width:350px){.birthday-cake .candles{padding-left:14px;padding-right:14px}.cake-plaque{font-size:8px;padding:8px 14px}}
 
 .birthday-cake .candle .flame{visibility:hidden}.birthday-cake .candle.lit .flame{visibility:visible}
+
+/* A fabric celebration banner suspended by its corner eyelets. */
+.closing-strip{position:relative;isolation:isolate;margin:18px 18px 36px;padding:29px 12px 26px;gap:7px;min-height:130px;background:linear-gradient(105deg,#e9b74d 0%,#ffdf83 10%,#f7d16e 48%,#ffe399 88%,#e8b752 100%);border:1px solid #d8a84b;border-radius:3px 3px 12px 12px;box-shadow:0 10px 0 -6px #2b7a8d55,0 17px 20px -12px #18566c77;transform:rotate(-2deg)}
+.closing-strip:before{content:'';position:absolute;inset:7px;border:1px dashed #ae7a3699;border-radius:0 0 8px 8px;pointer-events:none}
+.closing-strip:after{content:'';position:absolute;z-index:-1;left:-19px;right:-19px;top:12px;height:2px;background:#fff5d7;box-shadow:0 1px 1px #246a7a;transform:rotate(2deg);pointer-events:none}
+.closing-strip>span{position:absolute;top:8px;width:8px;height:8px;border:2px solid #fff9de;border-radius:50%;background:#648a87;box-shadow:0 1px 2px #86612d88;font-size:0;transform:none}
+.closing-strip>span:first-child{left:9px}.closing-strip>span:last-child{right:9px}
+.closing-strip p{margin:0;flex:1;position:relative;font-family:'Mabinogi Classic','Bithumb Gothic',sans-serif;font-size:12px;line-height:2.1;color:#4e492d;text-shadow:0 1px 0 #fff3b5;word-break:keep-all;overflow-wrap:anywhere}
+.closing-strip p:before{content:'★  HAPPY BIRTHDAY  ★';display:block;margin-bottom:10px;font-family:'Bithumb Gothic',sans-serif;font-size:9px;letter-spacing:2px;color:#a3604b;text-shadow:none}
+@media(max-width:350px){.closing-strip{margin-left:12px;margin-right:12px;padding-left:10px;padding-right:10px}.closing-strip p{font-size:11px}.closing-strip p:before{font-size:8px;letter-spacing:1.5px}}
