@@ -13,3 +13,5 @@ body,button,input,select,textarea,.intro,.footnote,#message,.hero-sticker small{
 .cake-flame{left:calc(56% - 4px);top:73px}.cake-smoke{left:calc(56% - 10px);top:62px}
 
 .character-actions button{min-width:84px;background:#fffbed;color:#425638;border-color:#b8c59b}.character-actions button[aria-pressed=true]{background:#6d9b50;color:#fffbed;border-color:#6d9b50}@media(max-width:350px){.character-actions button{min-width:78px}}
+
+.closing-strip p{min-width:0;flex:1;overflow-wrap:anywhere;word-break:break-all;line-height:1.9}.closing-strip>span{flex-shrink:0}
